@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civiora - Society Maintenance Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2><i class="fas fa-home"></i> Civiora</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> Maintenance Requests</a></li>
+                <li><a href="#"><i class="fas fa-calendar-check"></i> Scheduled Tasks</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Residents</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Bills & Payments</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-right">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="assets/user-avatar.png" alt="User">
+                        <span>Admin</span>
+                        <a href="javascript:void(0)" onclick="logout()" title="Logout" style="margin-left: 10px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome to Civiora, Admin! Here's what's happening today.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="card-icon bg-gold">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>24</h3>
+                            <p>Pending Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>42</h3>
+                            <p>Completed Tasks</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-orange">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>8</h3>
+                            <p>Scheduled Tasks</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-purple">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>₹1,25,000</h3>
+                            <p>Total Budget</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <h3>Maintenance Requests Overview</h3>
+                        <canvas id="requestsChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Monthly Expenses</h3>
+                        <canvas id="expensesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-container">
+                    <div class="recent-activity">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-blue">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>New maintenance request submitted</h4>
+                                    <p>Lift repair requested by Resident #102</p>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-green">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Maintenance task completed</h4>
+                                    <p>Water pump repair in Block A</p>
+                                    <span class="time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-orange">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Upcoming scheduled task</h4>
+                                    <p>Generator maintenance on Jan 28</p>
+                                    <span class="time">Tomorrow</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-purple">
+                                    <i class="fas fa-file-invoice"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>New bill generated</h4>
+                                    <p>Monthly maintenance bill for Resident #205</p>
+                                    <span class="time">Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn bg-blue">
+                                <i class="fas fa-plus"></i>
+                                <span>New Request</span>
+                            </button>
+                            <button class="action-btn bg-green">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Schedule Task</span>
+                            </button>
+                            <button class="action-btn bg-orange">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Generate Bill</span>
+                            </button>
+                            <button class="action-btn bg-purple">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Add Resident</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

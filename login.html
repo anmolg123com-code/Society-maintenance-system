@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Civiora Society Management System</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background image can be added here if needed -->
+    <div class="background-image" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+        <!-- <img src="assets/background.jpg" alt="Background" style="width: 100%; height: 100%; object-fit: cover;"> -->
+    </div>
+    
+    <div class="login-container">
+        <div class="login-form">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <h1>Civiora</h1>
+            </div>
+            <h2 style="text-align: center; margin-bottom: 30px;">Society Maintenance Management System</h2>
+            
+            <div class="login-sections">
+                <div class="login-column">
+                    <h3>Admin Login</h3>
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="username"><i class="fas fa-user"></i> Admin Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter admin username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter admin password" required>
+                        </div>
+                        <div class="options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="login-btn">Login as Admin</button>
+                    </form>
+                </div>
+                
+                <div class="divider-vertical"></div>
+                
+                <div class="login-column">
+                    <h3>Resident Login</h3>
+                    <form id="residentForm">
+                        <div class="input-group">
+                            <label for="residentId"><i class="fas fa-id-card"></i> Resident ID</label>
+                            <input type="text" id="residentId" name="residentId" placeholder="Enter your Resident ID" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="residentPassword"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="residentPassword" name="residentPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="residentRemember">
+                                <label for="residentRemember">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="login-btn">Login as Resident</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="divider" style="margin: 30px 0;">
+                <span>or continue with</span>
+            </div>
+            <div class="social-login">
+                <button class="social-btn google">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </button>
+            </div>
+            <div class="signup-link" style="text-align: center; margin-top: 20px;">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Admin form submission handler
+            const adminForm = document.getElementById('loginForm');
+            if (adminForm) {
+                adminForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const username = document.getElementById('username').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    
+                    // Simple validation
+                    if (!username) {
+                        alert('Please enter your username');
+                        return;
+                    }
+                    
+                    if (!password) {
+                        alert('Please enter your password');
+                        return;
+                    }
+                    
+                    // Simulate login process
+                    const loginBtn = document.querySelector('#loginForm .login-btn');
+                    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                    loginBtn.disabled = true;
+                    
+                    setTimeout(function() {
+                        // Reset button
+                        loginBtn.innerHTML = 'Login as Admin';
+                        loginBtn.disabled = false;
+                        
+                        // Redirect to admin dashboard
+                        alert('Admin login successful!');
+                        window.location.href = 'index.html';
+                    }, 1500);
+                });
+            }
+            
+            // Resident form submission handler
+            const residentForm = document.getElementById('residentForm');
+            if (residentForm) {
+                residentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const residentId = document.getElementById('residentId').value.trim();
+                    const password = document.getElementById('residentPassword').value.trim();
+                    
+                    // Simple validation
+                    if (!residentId) {
+                        alert('Please enter your Resident ID');
+                        return;
+                    }
+                    
+                    if (!password) {
+                        alert('Please enter your password');
+                        return;
+                    }
+                    
+                    // Simulate login process
+                    const loginBtn = document.querySelector('#residentForm .login-btn');
+                    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                    loginBtn.disabled = true;
+                    
+                    setTimeout(function() {
+                        // Reset button
+                        loginBtn.innerHTML = 'Login as Resident';
+                        loginBtn.disabled = false;
+                        
+                        // Redirect to resident dashboard
+                        alert('Resident login successful!');
+                        window.location.href = 'resident.html';
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

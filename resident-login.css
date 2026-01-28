@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #B89B5E, #9a7d4d);
+    /* If you want to add a specific image, uncomment the next line and replace with your image path */
+    /* background-image: url('../assets/background.jpg'), linear-gradient(135deg, #B89B5E, #9a7d4d); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo i {
+    font-size: 48px;
+    color: #B89B5E;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 14px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input-group label i {
+    margin-right: 8px;
+    color: #B89B5E;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e1e5ee;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f8f9ff;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #B89B5E;
+    box-shadow: 0 0 0 3px rgba(184, 155, 94, 0.2);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input {
+    width: 18px;
+    height: 18px;
+    accent-color: #B89B5E;
+}
+
+.forgot-password {
+    color: #B89B5E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #B89B5E, #9a7d4d);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #9a7d4d, #B89B5E);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 155, 94, 0.4);
+}
+
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 25px 0;
+    color: #777;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ddd;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.social-btn:hover {
+    border-color: #B89B5E;
+    color: #B89B5E;
+}
+
+.google {
+    color: #db4437;
+}
+
+.google:hover {
+    background-color: rgba(219, 68, 55, 0.05);
+}
+
+.facebook {
+    color: #4267B2;
+}
+
+.facebook:hover {
+    background-color: rgba(66, 103, 178, 0.05);
+}
+
+.switch-login {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.switch-login a {
+    color: #B89B5E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-login a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+}
