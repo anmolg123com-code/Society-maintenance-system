@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFFDD0, #F5F5DC); /* Cream */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    color: #333; /* Dark gray for contrast */
+}
+
+.splash-container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+.logo-icon {
+    font-size: 64px;
+    color: #B89B5E; /* Brushed Gold */
+    margin-bottom: 20px;
+    display: block;
+    animation: fadeInDown 1s ease;
+}
+
+.animated-logo {
+    font-size: 60px;
+    font-weight: 700;
+    color: #B89B5E; /* Brushed Gold */
+    text-shadow: 0 0 20px rgba(184, 155, 94, 0.5);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #f5f5dc; /* Cream Beige */
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease 0.5s both;
+}
+
+.loading-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #B89B5E; /* Brushed Gold */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    color: #f5f5dc; /* Cream Beige */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Particles for background effect */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(184, 155, 94, 0.3); /* Brushed Gold */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .animated-logo {
+        font-size: 40px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+    
+    .logo-icon {
+        font-size: 48px;
+    }
+}

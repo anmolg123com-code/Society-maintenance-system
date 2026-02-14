@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #228B22, #1a5d1a); /* Forest Green */
+    /* If you want to add a specific image, uncomment the next line and replace with your image path */
+    /* background-image: url('../assets/background.jpg'), linear-gradient(135deg, #228B22, #1a5d1a); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.login-form {
+    background: rgba(245, 245, 220, 0.95); /* Cream Beige with transparency */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo i {
+    font-size: 48px;
+    color: #B89B5E; /* Brushed Gold */
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: #5a3921; /* Dark Brown */
+    font-weight: 700;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5a3921; /* Dark Brown */
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5a3921; /* Dark Brown */
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input-group label i {
+    margin-right: 8px;
+    color: #B89B5E; /* Brushed Gold */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #d4c3a9; /* Light Brown */
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f5f5dc; /* Cream Beige */
+    color: #5a3921; /* Dark Brown */
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #B89B5E; /* Brushed Gold */
+    box-shadow: 0 0 0 3px rgba(184, 155, 94, 0.2);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input {
+    width: 18px;
+    height: 18px;
+    accent-color: #B89B5E; /* Brushed Gold */
+}
+
+.forgot-password {
+    color: #B89B5E; /* Brushed Gold */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #B89B5E, #9a7d4d); /* Brushed Gold */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #9a7d4d, #B89B5E); /* Brushed Gold variation */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 155, 94, 0.4);
+}
+
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 25px 0;
+    color: #5a3921; /* Dark Brown */
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #d4c3a9; /* Light Brown */
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d4c3a9; /* Light Brown */
+    border-radius: 8px;
+    background: #f5f5dc; /* Cream Beige */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #5a3921; /* Dark Brown */
+}
+
+.social-btn:hover {
+    border-color: #B89B5E; /* Brushed Gold */
+    color: #B89B5E; /* Brushed Gold */
+    background-color: rgba(184, 155, 94, 0.1);
+}
+
+.google {
+    color: #db4437;
+}
+
+.google:hover {
+    background-color: rgba(219, 68, 55, 0.05);
+}
+
+.facebook {
+    color: #4267B2;
+}
+
+.facebook:hover {
+    background-color: rgba(66, 103, 178, 0.05);
+}
+
+.signup-link {
+    text-align: center;
+    color: #5a3921; /* Dark Brown */
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #B89B5E; /* Brushed Gold */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.back-to-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-login a {
+    color: #B89B5E; /* Brushed Gold */
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+}

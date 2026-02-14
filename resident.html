@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Portal - Civiora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2><i class="fas fa-home"></i> Civiora</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Announcements</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> My Bills</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> My Requests</a></li>
+                <li><a href="#"><i class="fas fa-calendar-check"></i> Events</a></li>
+                <li><a href="#"><i class="fas fa-comments"></i> Community</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Profile</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-right">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">2</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="assets/user-avatar.png" alt="User">
+                        <span>John Doe (Resident)</span>
+                        <a href="javascript:void(0)" onclick="residentLogout()" title="Logout" style="margin-left: 10px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1>Resident Dashboard</h1>
+                    <p>Welcome back, John Doe! Here's what's happening in your society.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="card-icon bg-blue">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>₹5,000</h3>
+                            <p>Outstanding Dues</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-green">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>3</h3>
+                            <p>Active Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-orange">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>2</h3>
+                            <p>Upcoming Events</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon bg-purple">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>5</h3>
+                            <p>Announcements</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <h3>Your Monthly Expenses</h3>
+                        <canvas id="residentsExpensesChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Society Announcements</h3>
+                        <canvas id="announcementsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-container">
+                    <div class="recent-activity">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-blue">
+                                    <i class="fas fa-file-invoice"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>New bill generated</h4>
+                                    <p>Your monthly maintenance bill is ready</p>
+                                    <span class="time">Today</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-green">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Request updated</h4>
+                                    <p>Your plumbing repair request is in progress</p>
+                                    <span class="time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-orange">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>New announcement</h4>
+                                    <p>Society meeting scheduled for next week</p>
+                                    <span class="time">2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-purple">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Event reminder</h4>
+                                    <p>Annual society event next month</p>
+                                    <span class="time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn bg-blue">
+                                <i class="fas fa-plus"></i>
+                                <span>New Request</span>
+                            </button>
+                            <button class="action-btn bg-green">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Pay Dues</span>
+                            </button>
+                            <button class="action-btn bg-orange">
+                                <i class="fas fa-comments"></i>
+                                <span>Contact Admin</span>
+                            </button>
+                            <button class="action-btn bg-purple">
+                                <i class="fas fa-calendar"></i>
+                                <span>View Events</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/resident.js"></script>
+</body>
+</html>
